@@ -1,0 +1,255 @@
+/* ============================================
+   CSS Custom Properties — Spring Palette
+   ============================================ */
+:root {
+  --bg: #FDFAF7;
+  --bg-secondary: #F5F0EB;
+  --text-primary: #2A2A2A;
+  --text-secondary: #787878;
+  --accent: #7BA7C9;
+  --highlight: #D4909A;
+  --warm: #E8C97E;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --nav-height: 64px;
+  --radius: 4px;
+  --transition-color: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark {
+  --bg: #15151A;
+  --bg-secondary: #1F1F26;
+  --text-primary: #EAE6E2;
+  --text-secondary: #9A9490;
+  --accent: #8FB8D0;
+  --highlight: #D4909A;
+  --warm: #D4B87A;
+}
+
+/* ============================================
+   Base Resets
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.7;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  transition: var(--transition-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ============================================
+   Typography Base
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+p {
+  font-family: var(--font-sans);
+  line-height: 1.75;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.serif {
+  font-family: var(--font-serif);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+.highlight-text {
+  color: var(--highlight);
+}
+
+.warm-text {
+  color: var(--warm);
+}
+
+/* Thin horizontal rule — sky blue */
+.rule-navy {
+  border: none;
+  border-top: 1px solid var(--accent);
+  width: 200px;
+  margin: 0 auto;
+  opacity: 0.6;
+}
+
+/* Gold/warm underline utility */
+.highlight-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--warm);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* ============================================
+   Layout Containers
+   ============================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-narrow {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================
+   Section Spacing
+   ============================================ */
+.section {
+  padding: 80px 0;
+}
+
+.section-sm {
+  padding: 48px 0;
+}
+
+/* ============================================
+   Scroll Reveal Utility
+   ============================================ */
+.reveal {
+  opacity: 0;
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 3px;
+  opacity: 0.4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ============================================
+   Focus Styles
+   ============================================ */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   Selection
+   ============================================ */
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ============================================
+   Transitions applied globally
+   ============================================ */
+body,
+body * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ============================================
+   Spring Gradient Utilities
+   ============================================ */
+
+/* Soft spring section background — light pink→blue wash */
+.spring-section {
+  background: linear-gradient(160deg, rgba(252, 232, 236, 0.22) 0%, rgba(232, 242, 253, 0.18) 50%, rgba(254, 248, 228, 0.22) 100%);
+}
+
+/* Bolder spring gradient for stat/featured sections */
+.spring-section--bold {
+  background: linear-gradient(135deg, rgba(249, 208, 216, 0.28) 0%, rgba(187, 218, 247, 0.22) 50%, rgba(244, 224, 176, 0.25) 100%);
+}
+
+/* Image placeholder — spring gradient */
+.img-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #fce8ec 0%, #e8f2fd 45%, #fef8e8 100%);
+  border: 1px dashed rgba(212, 144, 154, 0.35);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-placeholder-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+  opacity: 0.55;
+  letter-spacing: 0.06em;
+}
+
+/* Inline strong text emphasis for v-html bullets */
+strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
