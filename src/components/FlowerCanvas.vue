@@ -83,6 +83,11 @@ onBeforeUnmount(() => {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+:global(html.dark) .flower-canvas {
+  opacity: 0.18;
 }
 
 .flower-item {

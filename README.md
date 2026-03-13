@@ -2,7 +2,7 @@
 
 Personal portfolio website for Sara Emilia Binti Sharifudin, Data Scientist & AI Researcher.
 
-**Live:** [saraemyg.vercel.app](https://saraemyg.vercel.app)
+**Live:** [portfoliosara-green.vercel.app](https://portfoliosara-green.vercel.app) → renaming to `saraemyg.vercel.app`
 
 ---
 
