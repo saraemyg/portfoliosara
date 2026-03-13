@@ -15,6 +15,7 @@
   --nav-height: 64px;
   --radius: 4px;
   --transition-color: background-color 0.3s ease, color 0.3s ease;
+  color-scheme: light;
 }
 
 html.dark {
@@ -25,6 +26,7 @@ html.dark {
   --accent: #8FB8D0;
   --highlight: #D4909A;
   --warm: #D4B87A;
+  color-scheme: dark;
 }
 
 /* ============================================

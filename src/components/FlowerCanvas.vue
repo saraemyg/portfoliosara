@@ -83,11 +83,6 @@ onBeforeUnmount(() => {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  transition: opacity 0.3s ease;
-}
-
-:global(html.dark) .flower-canvas {
-  opacity: 0.18;
 }
 
 .flower-item {
@@ -97,6 +92,14 @@ onBeforeUnmount(() => {
   transition: filter 0.5s ease, transform 0.5s ease;
   transform-origin: center center;
   will-change: transform;
+}
+
+.flower-item svg {
+  transition: opacity 0.3s ease;
+}
+
+:global(html.dark) .flower-item svg {
+  opacity: 0.22;
 }
 
 .flower-item:hover {
