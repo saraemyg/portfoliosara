@@ -8,7 +8,6 @@
         <div class="nav-links">
           <router-link to="/projects" class="nav-link" active-class="nav-link--active">Work</router-link>
           <router-link to="/experience" class="nav-link" active-class="nav-link--active">Experience</router-link>
-          <router-link to="/about" class="nav-link" active-class="nav-link--active">About</router-link>
           <router-link to="/contact" class="nav-link" active-class="nav-link--active">Contact</router-link>
         </div>
 
@@ -52,14 +51,6 @@
         <polyline points="12 6 12 12 16 14"/>
       </svg>
       <span>Experience</span>
-    </router-link>
-    <router-link to="/about" class="mobile-bar-item" active-class="mobile-bar-item--active" aria-label="About">
-      <!-- User icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-        <circle cx="12" cy="7" r="4"/>
-      </svg>
-      <span>About</span>
     </router-link>
     <router-link to="/contact" class="mobile-bar-item" active-class="mobile-bar-item--active" aria-label="Contact">
       <!-- Mail icon -->

@@ -21,7 +21,6 @@
 
           <div class="hero-bio reveal-bio">
             <p>Final-year CS student at Multimedia University (CGPA 3.71), specialising in Data Science. I build AI systems end-to-end — from scraping raw data and training models to deploying dashboards that non-technical people actually reach for.</p>
-            <p>Previously at BoomGrow, a Malaysian agritech startup, where I trained 12,000+ plant images and learnt that good AI needs good data, and good data needs a lot of patience.</p>
           </div>
 
           <div class="hero-links reveal-links">
@@ -81,12 +80,69 @@
       </div>
     </section>
 
-    <section class="stats-section spring-section--bold">
+    <!-- Skills showcase (replaces stats) -->
+    <section class="skills-showcase spring-section--bold">
       <div class="container">
-        <div class="stats-grid">
-          <StatCounter number="12,000+" label="plant images processed" />
-          <StatCounter number="6,000+" label="market records scraped" />
-          <StatCounter number="900+" label="hackathon participants attracted" />
+        <p class="skills-label mono reveal-skills-label">Technical Skills</p>
+        <div class="skills-showcase-grid reveal-skills-grid">
+          <div v-for="group in skills.technical" :key="group.category" class="skill-row">
+            <span class="skill-cat mono">{{ group.category }}</span>
+            <div class="skill-pills">
+              <span v-for="s in group.skills" :key="s" class="skill-pill">{{ s }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="skills-extras reveal-skills-extras">
+          <div class="extras-group">
+            <span class="skill-cat mono">Languages</span>
+            <div class="skill-pills">
+              <span v-for="l in skills.languages" :key="l.lang" class="skill-pill skill-pill--warm">
+                {{ l.lang }} <span class="pill-level">{{ l.level }}</span>
+              </span>
+            </div>
+          </div>
+          <div class="extras-group">
+            <span class="skill-cat mono">Certifications</span>
+            <div class="skill-pills">
+              <span v-for="c in skills.certifications" :key="c" class="skill-pill skill-pill--blue">{{ c }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Bio section -->
+    <section class="about-home-section">
+      <div class="container">
+        <div class="about-home-split">
+          <div class="about-home-left reveal-about-left">
+            <span class="section-tag mono">Sara Emilia</span>
+            <h2 class="about-home-heading serif">Building things that<br>make data meaningful.</h2>
+            <p class="about-home-bio">
+              I'm a final-year Computer Science student at Multimedia University, Selangor, Malaysia,
+              specialising in data science and applied AI. My work spans computer vision, machine learning systems,
+              and data engineering.
+            </p>
+            <p class="about-home-bio">
+              I'm drawn to problems where the data already exists but has never been properly listened to —
+              where the right model paired with clear communication can shift how decisions are made.
+            </p>
+          </div>
+          <div class="about-home-right reveal-about-right">
+            <div class="about-photo-placeholder">
+              <div class="photo-inner">
+                <svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(0 20 20)"/>
+                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#BBDAF7" opacity="0.6"  transform="rotate(72 20 20)"/>
+                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(144 20 20)"/>
+                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#BBDAF7" opacity="0.6"  transform="rotate(216 20 20)"/>
+                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(288 20 20)"/>
+                  <circle cx="20" cy="20" r="4.5" fill="#F4E0B0" opacity="0.8"/>
+                </svg>
+                <span class="photo-label mono">[ your photo here ]</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -108,7 +164,7 @@
             <ul class="snap-facts">
               <li class="mono">🎓 MMU · Oct 2023 – Oct 2026</li>
               <li class="mono">💻 Data Science specialisation</li>
-              <li class="mono">🌱 Prev. BoomGrow (Jul–Oct 2025)</li>
+              <li class="mono">🌱 CGPA 3.71</li>
               <li class="mono">🏆 DSDR 2025 International Finalist</li>
             </ul>
           </div>
@@ -138,9 +194,9 @@
 import { onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import StatCounter from '@/components/StatCounter.vue'
 import ProjectBand from '@/components/ProjectBand.vue'
 import { projects } from '@/data/projects'
+import { skills } from '@/data/skills'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -167,11 +223,24 @@ onMounted(() => {
     { opacity: 0 },
     { opacity: 1, duration: 1, ease: 'power2.out', delay: 1.4 }
   )
-  gsap.fromTo('.stats-section .stat-counter',
-    { opacity: 0, y: 30 },
+
+  gsap.fromTo(['.reveal-skills-label', '.reveal-skills-grid', '.reveal-skills-extras'],
+    { opacity: 0, y: 24 },
     { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out',
-      scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true } }
+      scrollTrigger: { trigger: '.skills-showcase', start: 'top 80%', once: true } }
   )
+
+  gsap.fromTo('.reveal-about-left',
+    { opacity: 0, x: -30 },
+    { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out',
+      scrollTrigger: { trigger: '.about-home-section', start: 'top 82%', once: true } }
+  )
+  gsap.fromTo('.reveal-about-right',
+    { opacity: 0, x: 30 },
+    { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out',
+      scrollTrigger: { trigger: '.about-home-section', start: 'top 82%', once: true } }
+  )
+
   gsap.fromTo('.reveal-snap',
     { opacity: 0, y: 24 },
     { opacity: 1, y: 0, duration: 0.65, stagger: 0.1, ease: 'power2.out',
@@ -386,14 +455,156 @@ onMounted(() => {
 
 .scroll-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-secondary); letter-spacing: 0.1em; }
 
-.stats-section { padding: 80px 0; }
+/* ── Skills Showcase ── */
+.skills-showcase { padding: 72px 0; }
 
-.stats-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
-
-@media (min-width: 640px) {
-  .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 0; }
+.skills-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
 }
 
+.skills-showcase-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.skill-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-cat {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--highlight);
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 639px) {
+  .skill-cat { min-width: 100%; }
+}
+
+.skill-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.skill-pill {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(212,144,154,0.2);
+  border-radius: 20px;
+  padding: 3px 12px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+html.dark .skill-pill {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(212,144,154,0.18);
+}
+
+.skill-pill:hover { background: rgba(249,208,216,0.35); color: var(--text-primary); }
+
+.skill-pill--warm { border-color: rgba(232,201,126,0.35); }
+.skill-pill--warm:hover { background: rgba(244,224,176,0.35); }
+
+.skill-pill--blue { border-color: rgba(187,218,247,0.45); }
+.skill-pill--blue:hover { background: rgba(187,218,247,0.3); }
+
+.pill-level {
+  font-size: 10px;
+  opacity: 0.65;
+  margin-left: 4px;
+}
+
+.skills-extras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 48px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(212,144,154,0.15);
+}
+
+.extras-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── About / Bio ── */
+.about-home-section {
+  padding: 88px 0;
+  background-color: var(--bg);
+}
+
+.about-home-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+@media (min-width: 768px) {
+  .about-home-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+}
+
+.about-home-left { display: flex; flex-direction: column; gap: 20px; }
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.about-home-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.about-home-bio {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+.about-home-right { display: flex; justify-content: center; }
+
+.about-photo-placeholder {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, #fce8ec 0%, #e8f2fd 45%, #fef8e8 100%);
+  border: 1px dashed rgba(212,144,154,0.4);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(1deg);
+  transition: transform 0.4s ease;
+}
+
+.about-photo-placeholder:hover { transform: rotate(0deg) scale(1.02); }
+
+/* ── Snapshot ── */
 .snapshot-section { padding: 64px 0; background-color: var(--bg); }
 
 .snapshot-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
@@ -436,6 +647,7 @@ onMounted(() => {
 
 .snap-img-text { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); opacity: 0.5; letter-spacing: 0.04em; text-align: center; line-height: 1.6; }
 
+/* ── Work ── */
 .work-section { padding: 96px 0; }
 
 .section-heading { font-family: var(--font-serif); font-size: clamp(28px, 4vw, 40px); color: var(--text-primary); margin-bottom: 48px; }

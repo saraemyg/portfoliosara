@@ -56,22 +56,39 @@
           :key="ach.title"
           class="achievement-block"
         >
-          <div class="ach-header">
-            <div class="ach-title-row">
-              <span class="ach-badge mono">Finalist</span>
-              <h3 class="ach-title serif">{{ ach.title }}</h3>
+          <div class="ach-inner">
+            <div class="ach-content">
+              <div class="ach-header">
+                <div class="ach-title-row">
+                  <span class="ach-badge mono">Finalist</span>
+                  <h3 class="ach-title serif">{{ ach.title }}</h3>
+                </div>
+                <div class="ach-meta">
+                  <span class="ach-org mono text-secondary">{{ ach.org }}</span>
+                  <span class="ach-date mono">{{ ach.date }}</span>
+                </div>
+              </div>
+              <ul class="job-bullets">
+                <li v-for="(bullet, i) in ach.bullets" :key="i" class="job-bullet">
+                  <span class="bullet-dot"></span>
+                  <span v-html="bullet"></span>
+                </li>
+              </ul>
             </div>
-            <div class="ach-meta">
-              <span class="ach-org mono text-secondary">{{ ach.org }}</span>
-              <span class="ach-date mono">{{ ach.date }}</span>
+            <div class="ach-photo-wrap">
+              <div class="ach-photo-placeholder">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(0 20 20)"/>
+                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#E8C97E" opacity="0.6"  transform="rotate(72 20 20)"/>
+                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(144 20 20)"/>
+                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#E8C97E" opacity="0.6"  transform="rotate(216 20 20)"/>
+                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(288 20 20)"/>
+                  <circle cx="20" cy="20" r="4.5" fill="#F4E0B0" opacity="0.8"/>
+                </svg>
+                <span class="ach-photo-label mono">[ add photo ]</span>
+              </div>
             </div>
           </div>
-          <ul class="job-bullets">
-            <li v-for="(bullet, i) in ach.bullets" :key="i" class="job-bullet">
-              <span class="bullet-dot"></span>
-              <span v-html="bullet"></span>
-            </li>
-          </ul>
         </div>
 
         <!-- Certifications -->
@@ -317,6 +334,46 @@ onMounted(() => {
   padding: 28px 24px;
   border-radius: 0 8px 8px 0;
   margin-bottom: 24px;
+}
+
+.ach-inner {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.ach-content { flex: 1; min-width: 0; }
+
+.ach-photo-wrap { flex-shrink: 0; }
+
+.ach-photo-placeholder {
+  width: 120px;
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, rgba(232,201,126,0.25) 0%, rgba(252,232,236,0.3) 100%);
+  border: 1px dashed rgba(232,201,126,0.5);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.3s ease;
+}
+
+.ach-photo-placeholder:hover { transform: scale(1.03); }
+
+.ach-photo-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--warm);
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  text-align: center;
+}
+
+@media (max-width: 639px) {
+  .ach-inner { flex-direction: column-reverse; }
+  .ach-photo-placeholder { width: 100%; aspect-ratio: 16/6; }
 }
 
 .ach-title-row {

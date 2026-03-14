@@ -20,8 +20,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { gsap } from 'gsap'
+import { useDarkMode } from '@/composables/useDarkMode'
+
+const { isDark } = useDarkMode()
+const svgOpacity = computed(() => isDark.value ? '0.22' : '1')
 
 const flowerRefs = ref([])
 const tweens = []
@@ -50,7 +54,6 @@ onMounted(() => {
     if (!el) return
     const f = flowers[i]
 
-    // Random drift + rotation, looping forever with yoyo
     const driftX = 18 + Math.random() * 22
     const driftY = 14 + Math.random() * 18
     const rot = 10 + Math.random() * 18
@@ -95,11 +98,8 @@ onBeforeUnmount(() => {
 }
 
 .flower-item svg {
+  opacity: v-bind(svgOpacity);
   transition: opacity 0.3s ease;
-}
-
-:global(html.dark) .flower-item svg {
-  opacity: 0.22;
 }
 
 .flower-item:hover {
