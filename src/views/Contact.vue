@@ -5,7 +5,7 @@
       <!-- Kaomoji character -->
       <div class="kaomoji-wrap" @mouseenter="excited = true" @mouseleave="excited = false">
         <div class="speech-bubble" :class="{ active: excited }">
-          let's build something great together! ✨
+          Let's build something great together! ✨
         </div>
         <span class="kaomoji" :class="{ excited }">{{ excited ? '(≧◡≦)' : '(｡◕‿◕｡)' }}</span>
       </div>
@@ -19,15 +19,15 @@
       <div class="contact-links reveal-links">
 
         <!-- Phone -->
-        <div class="contact-link contact-link--static">
+        <!-- <div class="contact-link contact-link--static">
           <span class="link-icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.55 2 2 0 0 1 3.6 1.37h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
           </span>
           <span class="link-label mono">Phone</span>
-          <span class="link-value link-value--muted">+60 XX XXXX XXXX · [ add yours ]</span>
-        </div>
+          <span class="link-value link-value--muted">+60 19 291· [ add yours ]</span>
+        </div> -->
 
         <!-- Email -->
         <a href="mailto:saraem.yg@gmail.com" class="contact-link">

@@ -12,9 +12,15 @@
       <p class="timeline-org serif-italic">{{ org }}</p>
       <p v-if="orgSub" class="timeline-org-sub mono">{{ orgSub }}</p>
 
-      <!-- Image placeholder -->
-      <div v-if="hasImage" class="timeline-img-placeholder">
-        <span class="img-placeholder-label mono">[Event Photo]</span>
+      <!-- Images: shown only if provided -->
+      <div v-if="images && images.length" class="timeline-imgs">
+        <img
+          v-for="(src, i) in images"
+          :key="i"
+          :src="src"
+          :alt="`${org} photo ${i + 1}`"
+          class="timeline-img"
+        />
       </div>
 
       <!-- Bullets with bold support -->
@@ -41,7 +47,7 @@ defineProps({
   period: { type: String, required: true },
   description: { type: String, default: '' },
   bullets: { type: Array, default: null },
-  hasImage: { type: Boolean, default: false }
+  images: { type: Array, default: null }
 })
 </script>
 
@@ -131,27 +137,33 @@ defineProps({
   margin-bottom: 8px;
 }
 
-/* Image placeholder */
-.timeline-img-placeholder {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 16/7;
-  background: linear-gradient(135deg, #fce8ec 0%, #e8f1fb 50%, #fef6e4 100%);
-  border: 1px dashed rgba(212, 144, 154, 0.35);
-  border-radius: 6px;
+/* Images */
+.timeline-imgs {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 8px;
   margin: 12px 0;
+  flex-wrap: nowrap;
+  max-width: 380px;
+  overflow: hidden;
 }
 
-.img-placeholder-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-secondary);
-  opacity: 0.6;
-  letter-spacing: 0.04em;
+.timeline-img {
+  width: calc(50% - 4px);
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
 }
+
+.timeline-img:first-child:last-child {
+  width: 100%;
+  max-width: 380px;
+  height: 120px;
+}
+
+.timeline-img:hover { transform: scale(1.02); }
 
 /* Bullet list */
 .timeline-bullets {

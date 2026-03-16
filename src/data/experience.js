@@ -19,6 +19,13 @@ export const experience = {
       title: 'Finalist — Data Science Digital Race 2025',
       org: 'International Competition',
       date: 'Sep 2025',
+      images: [
+        '/images/dsdr1.png',
+        '/images/dsdr2.png',
+        '/images/dsdr3.png',
+        '/images/dsdr4.png',
+        '/images/dsdr5.png',
+      ],
       bullets: [
         'Competed at international level in <strong>mathematical modelling, predictive analytics, and data storytelling</strong>; received praise from judges for creative <strong>sentiment analysis dashboard</strong> design and presentation.',
         'Analysed <strong>airline passenger satisfaction data</strong> across global carriers, identifying key drivers of satisfaction through statistical modelling and feature importance analysis.',
@@ -44,6 +51,7 @@ export const experience = {
       orgSub: 'IT Society MMU',
       period: 'Jan 2026',
       description: 'Designed and delivered a hands-on AI workshop for 45 beginners.',
+      images: ['/images/opencvworkshop1.jpg', '/images/opencvworkshop2.jpg'],
       bullets: [
         'Independently prepared all workshop content from scratch covering <strong>YOLO model training, preprocessing, and augmentation</strong>.',
         'Facilitated a hands-on session for <strong>45 beginners</strong>, demonstrating real-time <strong>American Sign-Language Recognition</strong> application prototype.',

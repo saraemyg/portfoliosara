@@ -9,18 +9,18 @@
 
           <h1 class="hero-name serif reveal-hero-name">
             Sara Emilia<br>
-            <span class="name-second">Binti Sharifudin</span>
+            <!-- <span class="name-second">Binti Sharifudin</span> -->
           </h1>
 
           <p class="hero-role mono reveal-role">Data Scientist &amp; AI Researcher</p>
 
           <hr class="rule-navy hero-rule reveal-rule" />
 
-          <p class="hero-tagline serif reveal-tagline">{{ tagline }}</p>
-          <p class="tagline-hint mono">✏️ edit tagline in Home.vue → const tagline</p>
+          <!-- <p class="hero-tagline serif reveal-tagline">{{ tagline }}</p> -->
+          <p class="tagline-hint mono"> I'm ready to bring the greatest potential to life.</p>
 
           <div class="hero-bio reveal-bio">
-            <p>Final-year CS student at Multimedia University (CGPA 3.71), specialising in Data Science. I build AI systems end-to-end — from scraping raw data and training models to deploying dashboards that non-technical people actually reach for.</p>
+            <p>Final-year Computer Science student at Multimedia University (MMU), specialising in Data Science. I build AI systems end-to-end — from scraping raw data and training models to deploying dashboards that non-technical people actually reach for.</p>
           </div>
 
           <div class="hero-links reveal-links">
@@ -32,18 +32,19 @@
 
         <div class="hero-right reveal-right">
 
-          <div class="hero-photo-wrap">
-            <div class="hero-photo-placeholder">
-              <div class="photo-inner">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(0 20 20)"/>
-                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#BBDAF7" opacity="0.6"  transform="rotate(72 20 20)"/>
-                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(144 20 20)"/>
-                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#BBDAF7" opacity="0.6"  transform="rotate(216 20 20)"/>
-                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(288 20 20)"/>
-                  <circle cx="20" cy="20" r="4.5" fill="#F4E0B0" opacity="0.8"/>
-                </svg>
-                <span class="photo-label mono">[ your photo here ]</span>
+          <div class="hero-photo-wrap" @mouseenter="photoHovered = true" @mouseleave="photoHovered = false">
+            <div class="hero-photo-frame-wrap">
+              <!-- Speech bubble + kaomoji floats above on hover -->
+              <div class="photo-greeting" :class="{ active: photoHovered }">
+                <div class="photo-bubble">nice to meet you! ✨</div>
+                <span class="photo-kaomoji">{{ photoHovered ? '(≧▽≦)' : '(｡◕‿◕｡)' }}</span>
+              </div>
+              <div class="hero-photo-frame">
+                <img
+                  :src="photoHovered ? '/images/hero-photo2.jpg' : '/images/hero-photo1 (2).jpg'"
+                  alt="Sara Emilia"
+                  class="hero-photo-img"
+                />
               </div>
             </div>
             <p class="photo-caption mono">Sara Emilia · Selangor, MY</p>
@@ -51,18 +52,18 @@
 
           <div class="hero-meta-card">
             <div class="meta-item">
-              <span class="meta-key mono">Currently</span>
-              <span class="meta-val">FYP — Real-time Surveillance AI</span>
+              <span class="meta-key mono">Current Project</span>
+              <span class="meta-val">Final Year Project — Real-time Surveillance AI</span>
             </div>
             <div class="meta-divider"></div>
             <div class="meta-item">
               <span class="meta-key mono">Based in</span>
-              <span class="meta-val">Selangor, Malaysia</span>
+              <span class="meta-val">Shah Alam, Selangor, Malaysia</span>
             </div>
             <div class="meta-divider"></div>
             <div class="meta-item">
               <span class="meta-key mono">Open to</span>
-              <span class="meta-val">Research &amp; grad opportunities</span>
+              <span class="meta-val">Job &amp; Graduation Opportunities</span>
             </div>
           </div>
 
@@ -119,28 +120,16 @@
             <span class="section-tag mono">Sara Emilia</span>
             <h2 class="about-home-heading serif">Building things that<br>make data meaningful.</h2>
             <p class="about-home-bio">
-              I'm a final-year Computer Science student at Multimedia University, Selangor, Malaysia,
-              specialising in data science and applied AI. My work spans computer vision, machine learning systems,
-              and data engineering.
+              My work spans computer vision, machine learning systems, and data engineering.
             </p>
             <p class="about-home-bio">
-              I'm drawn to problems where the data already exists but has never been properly listened to —
+              I'm drawn to problems where the data already exists but has never been properly listened to, 
               where the right model paired with clear communication can shift how decisions are made.
             </p>
           </div>
           <div class="about-home-right reveal-about-right">
-            <div class="about-photo-placeholder">
-              <div class="photo-inner">
-                <svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(0 20 20)"/>
-                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#BBDAF7" opacity="0.6"  transform="rotate(72 20 20)"/>
-                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(144 20 20)"/>
-                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#BBDAF7" opacity="0.6"  transform="rotate(216 20 20)"/>
-                  <ellipse cx="20" cy="7" rx="5.5" ry="9" fill="#F9D0D8" opacity="0.65" transform="rotate(288 20 20)"/>
-                  <circle cx="20" cy="20" r="4.5" fill="#F4E0B0" opacity="0.8"/>
-                </svg>
-                <span class="photo-label mono">[ your photo here ]</span>
-              </div>
+            <div class="about-photo-frame">
+              <img src="/images/aboutphoto.jpeg" alt="Sara Emilia" class="about-photo-img" />
             </div>
           </div>
         </div>
@@ -152,20 +141,18 @@
         <div class="snapshot-grid">
           <div class="snapshot-card reveal-snap">
             <span class="snap-label mono">in my world</span>
-            <p class="snap-text serif">Computer vision, data storytelling, and finding the best teh tarik in Cyberjaya.</p>
+            <p class="snap-text serif">It's always to do your best, in the meanwhile finding the best teh ais ever!</p>
           </div>
           <div class="snapshot-card snapshot-img reveal-snap">
-            <div class="snap-img-placeholder">
-              <span class="snap-img-text mono">[ add a photo — lab / event / anything you! ]</span>
-            </div>
+            <img src="/images/snapimg.jpg" alt="Sara Emilia snapshot" class="snap-real-img" />
           </div>
           <div class="snapshot-card reveal-snap">
             <span class="snap-label mono">quick facts</span>
             <ul class="snap-facts">
               <li class="mono">🎓 MMU · Oct 2023 – Oct 2026</li>
-              <li class="mono">💻 Data Science specialisation</li>
-              <li class="mono">🌱 CGPA 3.71</li>
-              <li class="mono">🏆 DSDR 2025 International Finalist</li>
+              <li class="mono">💻 I love Graphic Design and Art too!</li>
+              <li class="mono">🌱 First Class, Dean's List Recipient</li>
+              <li class="mono">🏆 SM Sains Selangor (SMSS) Alumni</li>
             </ul>
           </div>
         </div>
@@ -191,8 +178,10 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
+
+const photoHovered = ref(false)
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProjectBand from '@/components/ProjectBand.vue'
 import { projects } from '@/data/projects'
@@ -373,34 +362,89 @@ onMounted(() => {
 
 .hero-photo-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 
-.hero-photo-placeholder {
+.hero-photo-frame {
   width: 100%;
   max-width: 280px;
   aspect-ratio: 3/4;
-  background: linear-gradient(160deg, #fce8ec 0%, #e8f2fd 45%, #fef8e8 100%);
-  border: 1px dashed rgba(212,144,154,0.4);
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
   box-shadow: 0 0 0 8px var(--bg), 0 0 0 9px rgba(212,144,154,0.18);
   transform: rotate(-1.5deg);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.hero-photo-placeholder:hover {
+.hero-photo-frame:hover {
   transform: rotate(0deg) scale(1.02);
   box-shadow: 0 0 0 8px var(--bg), 0 8px 32px rgba(212,144,154,0.25), 0 0 0 9px rgba(212,144,154,0.22);
 }
 
-.photo-inner { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.hero-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.25s ease;
+}
 
-.photo-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-secondary);
-  opacity: 0.5;
-  letter-spacing: 0.06em;
+/* ── Photo greeting ── */
+.hero-photo-frame-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+}
+
+.photo-greeting {
+  position: absolute;
+  top: 25%;
+  right: calc(100% + 12px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.25s ease;
+  white-space: nowrap;
+}
+
+.photo-greeting.active { opacity: 1; }
+
+.photo-bubble {
+  background: linear-gradient(135deg, rgba(249,208,216,0.96) 0%, rgba(187,218,247,0.96) 100%);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 18px;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(212,144,154,0.22);
+  position: relative;
+  transform: translateX(6px);
+  transition: transform 0.25s ease;
+}
+
+.photo-greeting.active .photo-bubble { transform: translateX(0); }
+
+/* tail pointing right toward the photo */
+.photo-bubble::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border: 7px solid transparent;
+  border-left-color: rgba(187,218,247,0.96);
+}
+
+.photo-kaomoji {
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.photo-greeting.active .photo-kaomoji {
+  transform: scale(1.18) rotate(-6deg);
 }
 
 .photo-caption {
@@ -588,21 +632,25 @@ html.dark .skill-pill {
 
 .about-home-right { display: flex; justify-content: center; }
 
-.about-photo-placeholder {
+.about-photo-frame {
   width: 100%;
   max-width: 300px;
   aspect-ratio: 3/4;
-  background: linear-gradient(160deg, #fce8ec 0%, #e8f2fd 45%, #fef8e8 100%);
-  border: 1px dashed rgba(212,144,154,0.4);
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
   transform: rotate(1deg);
   transition: transform 0.4s ease;
+  box-shadow: 0 8px 32px rgba(212,144,154,0.15);
 }
 
-.about-photo-placeholder:hover { transform: rotate(0deg) scale(1.02); }
+.about-photo-frame:hover { transform: rotate(0deg) scale(1.02); }
+
+.about-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 /* ── Snapshot ── */
 .snapshot-section { padding: 64px 0; background-color: var(--bg); }
@@ -631,21 +679,15 @@ html.dark .skill-pill {
 
 .snap-facts li { font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); line-height: 1.5; letter-spacing: 0.02em; }
 
-.snapshot-img { padding: 0; overflow: hidden; }
+.snapshot-img { padding: 0; overflow: hidden; max-height: 200px; }
 
-.snap-img-placeholder {
+.snap-real-img {
   width: 100%;
-  height: 100%;
-  min-height: 180px;
-  background: linear-gradient(135deg, #fce8ec 0%, #e8f2fd 50%, #fef8e8 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
   border-radius: 8px;
 }
-
-.snap-img-text { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); opacity: 0.5; letter-spacing: 0.04em; text-align: center; line-height: 1.6; }
 
 /* ── Work ── */
 .work-section { padding: 96px 0; }
